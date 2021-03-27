@@ -39,9 +39,11 @@ main {
 .ant-card-cover img {
   width: auto !important;
   margin: auto !important;
-  border-radius: 8%;
 }
 
+.ant-card-cover picture {
+  border-radius: 8%;
+}
 /* Gradient */
 
 body {
