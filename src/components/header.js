@@ -5,8 +5,10 @@ import { Link } from "gatsby"
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
+      display: `flex`,
+      justifyContent: `center`,
+      background: `transparent`,
+      // marginBottom: `1.45rem`,
     }}
   >
     <div
@@ -20,11 +22,11 @@ const Header = ({ siteTitle }) => (
         <Link
           to="/"
           style={{
-            color: `white`,
+            color: `black`,
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          {/* {siteTitle} */}
         </Link>
       </h1>
     </div>
