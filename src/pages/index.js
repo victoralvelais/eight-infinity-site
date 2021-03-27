@@ -54,7 +54,7 @@ const pic = () => (
     quality={95}
     formats={["AUTO", "WEBP", "AVIF"]}
     alt="Great Face"
-    style={{ marginBottom: `auto`, borderRadius: '20%' }}
+    // style={{ borderRadius: '20%' }}
   />
 )
 
