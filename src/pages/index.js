@@ -34,7 +34,7 @@ const IndexPage = () => (
           {socialLink({ color: null, Icon: FB2Icon, url: 'https://www.facebook.com/vcaiii' })}
           {socialLink({ color: null, Icon: IGIcon, url: 'https://www.instagram.com/vca.iii' })}
           {socialLink({ color: null, Icon: TwitchIcon, url: 'https://www.twitch.tv/vcaiii' })}
-          {socialLink({ color: '#1DB954', Icon: SpotifyIcon, url: 'https://audius.co/vcaiii' })}
+          {/* {socialLink({ color: '#1DB954', Icon: SpotifyIcon, url: 'https://audius.co/vcaiii' })} */}
           {socialLink({ color: null, Icon: AudiusIcon, url: 'https://audius.co/vcaiii' })}
           {socialLink({ color: 'red', Icon: YTIcon, url: 'https://www.youtube.com/channel/UCfkT4qmHn2JaS_K-Exf1XzQ' })}
         </div>
