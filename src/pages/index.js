@@ -13,7 +13,7 @@ const { Meta } = Card
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="@vcaiii" />
+    <SEO title="Lord Vz" />
     <Card
       title={<span></span>}
       hoverable
@@ -60,9 +60,9 @@ const pic = () => (
 
 const socialLink = ({ url, color, Icon }) => {
   return (
-    <Link to={url} className='social-link'>
+    <a href={url} className='social-link'>
       <Icon style={{ fill: color }} />
-    </Link>
+    </a>
   )
 }
 

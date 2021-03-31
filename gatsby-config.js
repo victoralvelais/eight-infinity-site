@@ -3,6 +3,8 @@ module.exports = {
     title: `Lord Vz`,
     description: `Artist, Creator, Web Dev, Smart Ass, Gamer, Gluten Free, Solarpunk`,
     author: `@vcaiii`,
+    image: "/images/Gold-Smile.jpg", // Path to your image you placed in the 'static' folder
+    twitterUsername: "@vca_iii",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
