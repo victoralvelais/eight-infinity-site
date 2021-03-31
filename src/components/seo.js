@@ -20,7 +20,7 @@ function SEO({ description, lang, meta, title }) {
             description
             author
             image
-            twitterUsername
+            url
           }
         }
       }
@@ -56,7 +56,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `${site.siteMetadata.image}`
+          content: `${site.siteMetadata.url}${site.siteMetadata.image}`
         },
         {
           name: `twitter:card`,

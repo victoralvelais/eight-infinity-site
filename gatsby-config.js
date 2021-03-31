@@ -5,6 +5,7 @@ module.exports = {
     author: `@vcaiii`,
     image: "/images/Gold-Smile.jpg", // Path to your image you placed in the 'static' folder
     twitterUsername: "@vca_iii",
+    url: `https://vcaiii.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
