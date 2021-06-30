@@ -30,7 +30,6 @@ module.exports = {
     description: `${intro.main} | ${intro.secondary}`,
     author: `@vcaiii`,
     image: intro.image, // Path to your image you placed in the 'static' folder
-    youtubeChannel: "https://www.youtube.com/channel/UCfkT4qmHn2JaS_K-Exf1XzQ",
     url: `https://vcaiii.com`,
     intro,
     links,

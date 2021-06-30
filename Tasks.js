@@ -1,1 +1,1 @@
-// TODO Make image path and alt dynamic
+// TODO Environment variables for information
