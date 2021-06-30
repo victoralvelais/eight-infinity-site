@@ -2,7 +2,7 @@ const intro = {
   name: 'Vz',
   image: "/images/Gold-Smile.jpg",
   main: 'Digital Nomad, Web Dev, Creator',
-  secondary: 'Niche Collector, Gamer, Smart Ass',
+  secondary: 'Smart Ass, Gamer, Niche Collector',
   credentials: [
     { title: 'Founder & CEO', org: 'Panda Power for MTurk', url: 'https://pandapower.app' },
     { title: 'Founder', org: 'Izuzu Rodeo', url: 'https://izzrodeo.com' },
