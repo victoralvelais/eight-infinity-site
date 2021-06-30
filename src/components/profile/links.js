@@ -7,7 +7,13 @@ const socialLink = ({ url, org }) => {
   return <a key={url} href={url} className='social-link'>{Icon()}</a>
 }
 
-const linkSection = ({ section, data }) => (
+const linkSection = ({ links }) => (
+  <div style={{ display: 'flex', justifyContent: 'center' }}>
+    {links.map(s => socialLink({ url: `${s.link}${s.username}`, org: s.org }))}
+  </div>
+)
+
+const expandedLinkSection = ({ section, data }) => (
   <div key={section}>
     <h4 style={{ textAlign: 'center', margin: 0 }}>
       {section[0].toUpperCase() + section.substring(1)}
@@ -18,7 +24,8 @@ const linkSection = ({ section, data }) => (
   </div>
 )
 
-function LinkSection() {
+function LinkSection(props) {
+  const { expand } = props
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -49,10 +56,12 @@ function LinkSection() {
 
   const { links } = site.siteMetadata
   const sections = Object.keys(links)
+  const combinedLinks = [].concat(...Object.values(links))
 
   return (
     <>
-      {sections.map(section => linkSection({ section, data: links[section] }))}
+      {!expand && linkSection({ links: combinedLinks })}
+      {expand && sections.map(section => expandedLinkSection({ section, data: links[section] }))}
     </>
   )
 }

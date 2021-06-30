@@ -1,31 +1,21 @@
-import React from 'react'
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import { Card } from "antd"
 import LinkSection from './links'
+import { DownOutlined, UpOutlined } from '@ant-design/icons'
 
 const { Meta } = Card
 
-// const pic = image => {
-//   return (
-//     <GatsbyImage
-//       src={getImage(image.location)}
-//       width={300}
-//       formats={["AUTO", "WEBP", "AVIF"]}
-//       alt={image.alt}
-//       style={{ borderRadius: '8%' }}
-//     />
-//   )
-// }
-
-const pic = () => (
-  <StaticImage
-    src="../../images/Gold-Smile.jpg"
-    width={300}
-    quality={95}
-    formats={["AUTO", "WEBP", "AVIF"]}
+// Tracking
+// Make dynamic
+const pic = expand => (
+  <img
+    src="/images/Gold-Smile.jpg"
+    style={{ borderRadius: expand ? '50%' : '8%', maxWidth: expand ? 150 : 300 }}
+    // width={300}
+    // quality={95}
+    // formats={["AUTO", "WEBP", "AVIF"]}
     alt="Great Face"
-    style={{ borderRadius: '8%' }}
   />
 )
 
@@ -34,17 +24,18 @@ const buildCred = ({ title, org, url }) => (
 )
 
 const Intro = data => {
-  const { main, secondary, credentials } = data
+  const { main, secondary, credentials, expand } = data
 
   return (
     <div>
       <div>{main} | {secondary}</div>
-      {credentials.map(buildCred)}
+      {expand && credentials.map(buildCred)}
     </div>
   )
 }
 
 const Profile = () => {
+  const [expand, setExpand] = useState(false)
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -67,17 +58,20 @@ const Profile = () => {
   )
 
   const { main, secondary, credentials, name } = site.siteMetadata.intro
+  const ExpandIcon = expand ? UpOutlined : DownOutlined
   
   return (
     <Card
-      title={<span></span>}
+      title={null}
       hoverable
-      style={{ minWidth: 320 }}
-      cover={pic()}
+      style={{ minWidth: 320, padding: 20 }}
+      cover={pic(expand)}
+      onClick={e => setExpand(!expand)}
     >
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Meta style={{ textAlign: 'center', marginBottom: 10 }} title={name} description={Intro({ main, secondary, credentials })} />
-        <LinkSection />
+        <Meta style={{ textAlign: 'center', marginBottom: 10 }} title={name} description={Intro({ main, secondary, credentials, expand })} />
+        <LinkSection expand={expand} />
+        <ExpandIcon id='expand-icon' key="setting" />
       </div>
     </Card>
   )
