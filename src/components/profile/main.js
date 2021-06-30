@@ -8,14 +8,14 @@ const { Meta } = Card
 
 // Tracking
 // Make dynamic
-const pic = expand => (
+const pic = ({ image, expand }) => (
   <img
-    src="/images/Gold-Smile.jpg"
+    src={image.location}
     style={{ borderRadius: expand ? '50%' : '8%', maxWidth: expand ? 150 : 300 }}
     // width={300}
     // quality={95}
     // formats={["AUTO", "WEBP", "AVIF"]}
-    alt="Great Face"
+    alt={image.alt}
   />
 )
 
@@ -43,6 +43,10 @@ const Profile = () => {
           siteMetadata {
             intro {
               name
+              image {
+                location
+                alt
+              }
               main
               secondary
               credentials {
@@ -57,7 +61,7 @@ const Profile = () => {
     `
   )
 
-  const { main, secondary, credentials, name } = site.siteMetadata.intro
+  const { main, secondary, credentials, name, image } = site.siteMetadata.intro
   const ExpandIcon = expand ? UpOutlined : DownOutlined
   
   return (
@@ -65,7 +69,7 @@ const Profile = () => {
       title={null}
       hoverable
       style={{ minWidth: 320, padding: 20 }}
-      cover={pic(expand)}
+      cover={pic({ image, expand })}
       onClick={e => setExpand(!expand)}
     >
       <div style={{ display: 'flex', flexDirection: 'column' }}>

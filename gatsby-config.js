@@ -1,6 +1,6 @@
 const intro = {
   name: 'Vz',
-  image: "/images/Gold-Smile.jpg",
+  image: { location: "/images/profile-image.jpg", alt: 'Great Smile' },
   main: 'Digital Nomad, Web Dev, Creator',
   secondary: 'Smart Ass, Gamer, Niche Collector',
   credentials: [
