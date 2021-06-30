@@ -38,9 +38,7 @@ const Intro = data => {
 
   return (
     <div>
-      <div>{main}</div>
-      <div>{secondary}</div>
-      <br />
+      <div>{main} | {secondary}</div>
       {credentials.map(buildCred)}
     </div>
   )
@@ -68,7 +66,6 @@ const Profile = () => {
     `
   )
 
-  console.log(site.siteMetadata.intro)
   const { main, secondary, credentials, name } = site.siteMetadata.intro
   
   return (

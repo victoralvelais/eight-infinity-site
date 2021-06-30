@@ -4,12 +4,11 @@ import Icons from '../../assets/icons'
 
 const socialLink = ({ url, org }) => {
   const Icon = Icons[org]
-  console.log(Icon)
-  return <a key={url} href={url} className='social-link'><Icon /></a>
+  return <a key={url} href={url} className='social-link'>{Icon()}</a>
 }
 
 const linkSection = ({ section, data }) => (
-  <div>
+  <div key={section}>
     <h4 style={{ textAlign: 'center', margin: 0 }}>
       {section[0].toUpperCase() + section.substring(1)}
     </h4>

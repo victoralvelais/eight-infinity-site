@@ -9,7 +9,7 @@ main {
 
 .social-link {
   font-size: 3em;
-  margin: 10px;
+  margin: 0 10px;
   transition: all .1s ease-in-out;
 }
 

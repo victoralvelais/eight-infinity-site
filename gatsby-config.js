@@ -9,19 +9,17 @@ const intro = {
   ]
 }
 
-// Tracking
-// Have these links be passed, and use the org to call the icons/links/eventual feed
 const links = {
   socials: [
     { username: 'vcaiii', org: 'Facebook', link: 'https://www.facebook.com/'},
     { username: 'vca_iii', org: 'Twitter', link: 'https://twitter.com/'},
     { username: 'vca.iii', org: 'Instagram', link: 'https://www.instagram.com/'},
-    { username: 'UCfkT4qmHn2JaS_K-Exf1XzQ', org: 'YouTube', link: 'https://www.youtube.com/channel/'},
   ],
   shop: [
     { username: 'vcaiii', org: 'OpenSea', link: 'https://opensea.io/' },
   ],
   stream: [
+    { username: 'UCfkT4qmHn2JaS_K-Exf1XzQ', org: 'YouTube', link: 'https://www.youtube.com/channel/'},
     { username: 'vcaiii', org: 'Audius', link: 'https://audius.co/' },
   ],
 }
