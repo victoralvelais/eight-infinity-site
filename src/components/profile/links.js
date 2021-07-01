@@ -56,12 +56,13 @@ function LinkSection(props) {
 
   const { links } = site.siteMetadata
   const sections = Object.keys(links)
-  const combinedLinks = [].concat(...Object.values(links))
+  const filteredSections = sections.filter(s => links[s][0].org.length > 0)
+  const combinedLinks = [].concat(...Object.values(links)).filter(l => l.org.length > 0) // Filtering '' entries
 
   return (
     <>
       {!expand && linkSection({ links: combinedLinks })}
-      {expand && sections.map(section => expandedLinkSection({ section, data: links[section] }))}
+      {expand && filteredSections.map(section => expandedLinkSection({ section, data: links[section] }))}
     </>
   )
 }

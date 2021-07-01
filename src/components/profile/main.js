@@ -6,21 +6,19 @@ import { DownOutlined, UpOutlined } from '@ant-design/icons'
 
 const { Meta } = Card
 
-// Tracking
-// Make dynamic
 const pic = ({ image, expand }) => (
   <img
     src={image.location}
     style={{ borderRadius: expand ? '50%' : '8%', maxWidth: expand ? 150 : 300 }}
+    alt={image.alt}
     // width={300}
     // quality={95}
     // formats={["AUTO", "WEBP", "AVIF"]}
-    alt={image.alt}
   />
 )
 
 const buildCred = ({ title, org, url }) => (
-  <div key={org}>{title} at <a href={url}>{org}</a></div>
+  org.length ? <div key={org}>{title} at <a href={url}>{org}</a></div> : null
 )
 
 const Intro = data => {
@@ -28,7 +26,7 @@ const Intro = data => {
 
   return (
     <div>
-      <div>{main} | {secondary}</div>
+      <div>{main}{secondary ? ` | ${secondary}` : null}</div>
       {expand && credentials.map(buildCred)}
     </div>
   )
