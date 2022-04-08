@@ -9,6 +9,7 @@ const { Meta } = Card
 
 const pic = ({ image, expand }) => (
   <GatsbyImage
+    className={expand ? 'expanded' : ''}
     style={{ textAlign: 'center', maxHeight: expand ? 150 : 300 }}
     // style={{ textAlign: 'center', maxWidth: expand ? 150 : 300 }}
     imgStyle={{ textAlign: 'center', borderRadius: expand ? '50%' : '8%' }}
