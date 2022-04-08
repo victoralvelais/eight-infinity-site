@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const intro = {
   name: 'Vz',
   image: { location: "/images/profile-image.jpg", alt: 'Great Smile' },
@@ -42,7 +46,7 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          'G-6LG1C42M9D', // GA4
+          process.env.GA4 // GA4
         ],
         gtagConfig: {
           anonymize_ip: true,
