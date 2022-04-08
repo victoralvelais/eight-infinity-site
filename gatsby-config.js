@@ -1,11 +1,11 @@
 const intro = {
   name: 'Vz',
   image: { location: "/images/profile-image.jpg", alt: 'Great Smile' },
-  main: 'Digital Nomad, Web Dev, Creator',
-  secondary: 'Smart Ass, Gamer, Niche Collector',
+  main: 'Digital Creator',
+  secondary: 'Living Art',
   credentials: [
-    { title: 'Founder & CEO', org: 'Panda Power for MTurk', url: 'https://pandapower.app' },
-    { title: 'Founder', org: 'Izuzu Rodeo', url: 'https://izzrodeo.com' },
+    { title: 'Founder & CEO', org: 'MTurk Pro', url: 'https://mturkpro.com' },
+    { title: 'Co-Founder', org: 'Izuzu Rodeo', url: 'https://izzrodeo.com' },
   ]
 }
 
@@ -37,6 +37,22 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          'G-6LG1C42M9D', // GA4
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 30,
+        },
+        pluginConfig: {
+          head: true,
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

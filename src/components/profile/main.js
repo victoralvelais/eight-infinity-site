@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Card } from "antd"
 import LinkSection from './links'
 import { DownOutlined, UpOutlined } from '@ant-design/icons'
@@ -7,14 +8,23 @@ import { DownOutlined, UpOutlined } from '@ant-design/icons'
 const { Meta } = Card
 
 const pic = ({ image, expand }) => (
-  <img
-    src={image.location}
-    style={{ borderRadius: expand ? '50%' : '8%', maxWidth: expand ? 150 : 300 }}
-    alt={image.alt}
-    // width={300}
-    // quality={95}
-    // formats={["AUTO", "WEBP", "AVIF"]}
+  <GatsbyImage
+    style={{ textAlign: 'center', maxHeight: expand ? 150 : 300 }}
+    // style={{ textAlign: 'center', maxWidth: expand ? 150 : 300 }}
+    imgStyle={{ textAlign: 'center', borderRadius: expand ? '50%' : '8%' }}
+    objectPosition='center center'
+    objectFit='contain'
+    image={getImage(image)}
+    alt='Profile Image'
   />
+    // <img
+    //   src={image.location}
+    //   style={{ borderRadius: expand ? '50%' : '8%', maxWidth: expand ? 150 : 300 }}
+    //   alt={image.alt}
+    //   // width={300}
+    //   // quality={95}
+    //   // formats={["AUTO", "WEBP", "AVIF"]}
+    // />
 )
 
 const buildCred = ({ title, org, url }) => (
@@ -26,7 +36,7 @@ const Intro = data => {
 
   return (
     <div>
-      <div>{main}{secondary ? ` | ${secondary}` : null}</div>
+      <div>{main}{secondary ? ` • ${secondary}` : null}</div>
       {expand && credentials.map(buildCred)}
     </div>
   )
@@ -34,10 +44,10 @@ const Intro = data => {
 
 const Profile = () => {
   const [expand, setExpand] = useState(false)
-  const { site } = useStaticQuery(
+  const mainQuery = useStaticQuery(
     graphql`
       query {
-        site {
+        site: site {
           siteMetadata {
             intro {
               name
@@ -54,12 +64,17 @@ const Profile = () => {
               }
             }
           }
+        },
+        profileImage: file(relativePath: { eq: "profile-image.jpg" }) {
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
     `
   )
 
-  const { main, secondary, credentials, name, image } = site.siteMetadata.intro
+  const { main, secondary, credentials, name } = mainQuery.site.siteMetadata.intro
   const ExpandIcon = expand ? UpOutlined : DownOutlined
   
   return (
@@ -67,7 +82,7 @@ const Profile = () => {
       title={null}
       hoverable
       style={{ minWidth: 320, padding: 20 }}
-      cover={pic({ image, expand })}
+      cover={pic({ image: mainQuery.profileImage, expand })}
       onClick={e => setExpand(!expand)}
     >
       <div style={{ display: 'flex', flexDirection: 'column' }}>
