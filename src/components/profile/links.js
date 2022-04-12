@@ -4,7 +4,7 @@ import Icons from '../../assets/icons'
 
 const socialLink = ({ url, org }) => {
   const Icon = Icons[org]
-  return <a key={url} href={url} className='social-link'>{Icon()}</a>
+  return <a key={url} href={url} className='connections'>{Icon()}</a>
 }
 
 const linkSection = ({ links }) => (
