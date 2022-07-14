@@ -3,38 +3,38 @@ require("dotenv").config({
 })
 
 const intro = {
-  name: 'Vz',
-  image: { location: "/images/profile-image.jpg", alt: 'Great Smile' },
-  main: 'Digital Creator',
-  secondary: 'Living Art',
+  name: 'Eight or Infinity',
+  image: { location: "/images/profile-image.jpg", alt: 'Eight/Infinity logo' },
+  main: 'Exploring worlds',
+  secondary: 'Join the ship',
   credentials: [
-    { title: 'Founder & CEO', org: 'MTurk Pro', url: 'https://mturkpro.com' },
-    { title: 'Co-Founder', org: 'Izuzu Rodeo', url: 'https://izzrodeo.com' },
+    { title: '', org: '', url: '' },
   ]
 }
 
 const links = {
   socials: [
-    { username: 'vcaiii', org: 'Facebook', link: 'https://www.facebook.com/'},
-    { username: 'vca_iii', org: 'Twitter', link: 'https://twitter.com/'},
-    { username: 'vca.iii', org: 'Instagram', link: 'https://www.instagram.com/'},
+    { username: 'xKhfQQD', org: 'Discord', link: 'https://discord.gg/'},
+    { username: 'EightOrInfinity', org: 'Facebook', link: 'https://www.facebook.com/'},
+    { username: 'EightOrInfinity', org: 'Twitter', link: 'https://twitter.com/'},
+    { username: 'EightOrInfinityInsta', org: 'Instagram', link: 'https://www.instagram.com/'},
   ],
   shop: [
-    { username: 'vcaiii', org: 'OpenSea', link: 'https://opensea.io/' },
+    { username: '', org: '', link: '' },
   ],
   stream: [
-    { username: 'UCfkT4qmHn2JaS_K-Exf1XzQ', org: 'YouTube', link: 'https://www.youtube.com/channel/'},
-    { username: 'vcaiii', org: 'Audius', link: 'https://audius.co/' },
+    { username: '5h0ddIsDxcW9yEMYltEnWK', org: 'Spotify', link: 'https://open.spotify.com/show/'},
+    { username: 'UCPUaqPMKwGeIGZujEpHXrzA', org: 'YouTube', link: 'https://www.youtube.com/channel/'},
   ],
 }
 
 module.exports = {
   siteMetadata: {
-    title: `Vz`,
+    title: `Eight or Infinity`,
     description: `${intro.main} | ${intro.secondary}`,
-    author: `@vcaiii`,
+    author: `@EightOrInfinity`,
     image: intro.image, // Path to your image you placed in the 'static' folder
-    url: `https://vcaiii.com`,
+    url: `https://eightorinfinity.com`,
     intro,
     links,
   },
@@ -72,8 +72,8 @@ module.exports = {
         name: `vcaiii`,
         short_name: `vcaiii`,
         start_url: `/`,
-        background_color: `#FFD700`,
-        theme_color: `#FFD700`,
+        background_color: `#5918ff`,
+        theme_color: `#5918ff`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },

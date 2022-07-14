@@ -7,6 +7,7 @@ import YouTube from './YouTube.svg'
 import Spotify from './Spotify.svg'
 import Audius from './Audius.svg'
 import OpenSea from './OpenSea.svg'
+import Discord from './Discord.svg'
 
 const formatIcon = ({ color, Icon }) => {
   return <Icon style={{ fill: color }} />
@@ -21,6 +22,7 @@ const Icons = {
   Spotify: () => formatIcon({ color: '#1DB954', Icon: Spotify }),
   Audius: () => formatIcon({ color: null, Icon: Audius }),
   OpenSea: () => formatIcon({ color: null, Icon: OpenSea }),
+  Discord: () => formatIcon({ color: null, Icon: Discord }),
 }
 
 export default Icons

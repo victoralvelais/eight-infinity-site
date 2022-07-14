@@ -60,7 +60,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: radial-gradient(ellipse at center, #ffc118 0%, #f8e4ae 25%, #ffffff 100%)
+  background: radial-gradient(ellipse at center, #976efe 0%, #c6b0ff 25%, #ffffff 100%)
 }
 /* body {
   background: linear-gradient(-45deg, #f09a18, #f50958, #8017e2);
