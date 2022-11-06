@@ -1,5 +1,5 @@
-import client from '../../discord/client.js'
-import { getMusic } from "../../discord/music"
+import client from '../../discord/client.mjs'
+import { getMusic } from "../../discord/music.mjs"
 
 const discordReady = new Promise(resolve => client.on('ready', () => resolve(true)))
 client.login(process.env.BOT_TOKEN)
