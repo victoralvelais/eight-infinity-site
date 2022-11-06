@@ -22,7 +22,8 @@ const MusicPage = () => {
     <Layout>
       <SEO />
       <section style={{ padding: 15 }}>
-        <ul>
+        <h1 style={{ textAlign: 'center' }}>Music</h1>
+        <ul style={{ maxHeight: 400 }}>
           {music.map((music, index) => (
             <li key={index}>
               <a href={music}>{music}</a>

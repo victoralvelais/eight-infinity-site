@@ -9,7 +9,7 @@ async function grabLinks(musicChannel) {
   const musicMessages = messages.filter(musicMatch)
   const musicArray = Array.from(musicMessages.values()) // Converts map: [id, data] to array
   const musicLinks = musicArray.map(musicMatch)
-  return musicLinks.reverse()
+  return musicLinks
 }
 
 const musicMatch = msg => {
