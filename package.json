@@ -37,6 +37,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
+    "dev": "netlify dev",
     "develop": "gatsby develop",
     "functions": "netlify functions:serve",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
