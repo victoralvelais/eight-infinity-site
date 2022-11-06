@@ -1,4 +1,5 @@
-import Discord, { GatewayIntentBits } from 'discord.js'
+const Discord = require('discord.js')
+const { GatewayIntentBits } = Discord
 
 // Developer Portal: https://discord.com/developers/applications
 const client = new Discord.Client({
@@ -9,4 +10,4 @@ const client = new Discord.Client({
 	],
 })
 
-export default client
+module.exports = client

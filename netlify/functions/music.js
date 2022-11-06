@@ -1,11 +1,14 @@
-import client from '../../discord/client.mjs'
-import { getMusic } from "../../discord/music.mjs"
+const client = require('../../discord/client.js')
+const { getMusic } = require('../../discord/music.js')
 
 const discordReady = new Promise(resolve => client.on('ready', () => resolve(true)))
-client.login(process.env.BOT_TOKEN)
 
 const handler = async (event, context) => {
-  await discordReady
+  if (!client.isReady()) {
+    client.login(process.env.BOT_TOKEN)
+    await discordReady
+  }
+
   const musicLinks = await getMusic(client)
 
   return {
@@ -14,4 +17,4 @@ const handler = async (event, context) => {
   }
 }
 
-export { handler }
+module.exports = { handler }
