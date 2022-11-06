@@ -59,6 +59,9 @@ typings/
 public/*
 !public/images/
 
+# gatsby files
+.netlify/
+
 # Mac files
 .DS_Store
 
