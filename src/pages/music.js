@@ -4,6 +4,8 @@ import SEO from "../components/seo"
 import 'antd/dist/antd.css';
 import "./index.css"
 
+export const Head = () => <SEO />
+
 const fetchMusic = async () => {
   const response = await fetch('/.netlify/functions/music')
   // const response = await fetch('/api/music')

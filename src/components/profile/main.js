@@ -77,6 +77,7 @@ const Profile = () => {
 
   const { main, secondary, credentials, name } = mainQuery.site.siteMetadata.intro
   const ExpandIcon = expand ? UpOutlined : DownOutlined
+  mainQuery.profileImage.childImageSharp.gatsbyImageData.backgroundColor = 'transparent'
   
   return (
     <Card
@@ -87,7 +88,11 @@ const Profile = () => {
       onClick={e => setExpand(!expand)}
     >
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Meta style={{ textAlign: 'center', marginBottom: 10 }} title={name} description={Intro({ main, secondary, credentials, expand })} />
+        <Meta
+          title={name}
+          description={Intro({ main, secondary, credentials, expand })}
+          style={{ textAlign: 'center', marginBottom: 10, justifyContent: 'center' }}
+        />
         <LinkSection expand={expand} />
         <ExpandIcon id='expand-icon' key="setting" />
       </div>

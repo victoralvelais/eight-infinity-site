@@ -5,9 +5,10 @@ import Profile from '../components/profile/main'
 import 'antd/dist/antd.css';
 import "./index.css"
 
+export const Head = () => <SEO />
+
 const IndexPage = () => (
   <Layout>
-    <SEO />
     <Profile />
   </Layout>
 )

@@ -9,7 +9,7 @@ main {
 
 .connections {
   font-size: 3em;
-  margin: 0 10px;
+  margin: 10px;
   transition: all .1s ease-in-out;
 }
 
@@ -60,17 +60,32 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: radial-gradient(ellipse at center, #976efe 0%, #c6b0ff 25%, #ffffff 100%)
+  background: radial-gradient(ellipse at center, #976efe 0%, #c6b0ff 25%, #ffffff 100%);
 }
-/* body {
-  background: linear-gradient(-45deg, #f09a18, #f50958, #8017e2);
-  background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
-} */
+
+.svg-icon-background {
+  height: 1em;
+  width: 1em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.svg-icon-mask {
+  height: 1em;
+  width: 1em;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
 
 @media only screen and (max-width: 400px) {
-  .social-link {
-    font-size: 2em;
+  .connections {
+    font-size: 2.5em;
     margin: 5px 10px;
   }
 }

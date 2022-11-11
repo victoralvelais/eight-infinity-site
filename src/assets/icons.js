@@ -9,20 +9,41 @@ import Audius from './Audius.svg'
 import OpenSea from './OpenSea.svg'
 import Discord from './Discord.svg'
 
-const formatIcon = ({ color, Icon }) => {
-  return <Icon style={{ fill: color }} />
+const backgroundIcon = ({ Icon }) => {
+  return (
+    <div
+      className='svg-icon-background'
+      style={{
+        WebkitBackgroundImage: `url(${Icon})`,
+        backgroundImage: `url(${Icon})`,
+      }}
+    />
+  )
+}
+
+const maskIcon = ({ color, Icon }) => {
+  return (
+    <div
+      className='svg-icon-mask'
+      style={{
+        backgroundColor: color,
+        WebkitMaskImage: `url(${Icon})`,
+        maskImage: `url(${Icon})`,
+      }}
+    />
+  )
 }
 
 const Icons = {
-  Facebook: () => formatIcon({ color: null, Icon: Facebook }),
-  Instagram: () => formatIcon({ color: null, Icon: Instagram }),
-  Twitch: () => formatIcon({ color: null, Icon: Twitch }),
-  Twitter: () => formatIcon({ color: null, Icon: Twitter }),
-  YouTube: () => formatIcon({ color: 'red', Icon: YouTube }),
-  Spotify: () => formatIcon({ color: '#1DB954', Icon: Spotify }),
-  Audius: () => formatIcon({ color: null, Icon: Audius }),
-  OpenSea: () => formatIcon({ color: null, Icon: OpenSea }),
-  Discord: () => formatIcon({ color: null, Icon: Discord }),
+  Facebook: () => backgroundIcon({ color: null, Icon: Facebook }),
+  Instagram: () => backgroundIcon({ color: null, Icon: Instagram }),
+  Twitch: () => backgroundIcon({ color: null, Icon: Twitch }),
+  Twitter: () => backgroundIcon({ color: null, Icon: Twitter }),
+  YouTube: () => backgroundIcon({ color: 'red', Icon: YouTube }),
+  Spotify: () => maskIcon({ color: '#1DB954', Icon: Spotify }),
+  Audius: () => backgroundIcon({ color: null, Icon: Audius }),
+  OpenSea: () => backgroundIcon({ color: null, Icon: OpenSea }),
+  Discord: () => backgroundIcon({ color: null, Icon: Discord }),
 }
 
 export default Icons
