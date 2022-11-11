@@ -1,3 +1,4 @@
+require("dotenv").config()
 const Discord = require('discord.js')
 const { GatewayIntentBits } = Discord
 
@@ -10,4 +11,15 @@ const client = new Discord.Client({
 	],
 })
 
-module.exports = client
+const discordReady = new Promise(resolve => client.on('ready', () => resolve(true)))
+
+const startClient = async () => {
+  if (!client.isReady()) {
+    client.login(process.env.BOT_TOKEN)
+    await discordReady
+  }
+
+  return client
+}
+
+module.exports = startClient

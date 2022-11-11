@@ -1,3 +1,8 @@
+async function getMusicMessages(client) {
+  const channel = await client.channels.cache.find(chan => chan.name.match(/music$/)) // Designated Channel
+  return await channel.messages.fetch({ limit: 100 })
+}
+
 async function getMusic(client) {
   const channel = await client.channels.cache.find(chan => chan.name.match(/music$/)) // Designated Channel
   const musicLinks = await grabLinks(channel)
@@ -23,4 +28,4 @@ const musicMatch = msg => {
   else return false
 }
 
-module.exports = { getMusic }
+module.exports = { getMusic, getMusicMessages }
