@@ -53,10 +53,12 @@ function shouldUseMockData(messages = {}) {
 async function saveMockData(data) {
   const mockedData = parseMessages(data)
   const jsonContent = JSON.stringify({ lastUpdated: new Date(), data: mockedData }, null, 2)
-  const mockOutput = path.join(__dirname, '..', '__mocks__', 'music.json')
+  const mockFolder = path.join(__dirname, '..', '__mocks__')
+  const mockFile = path.join(mockFolder, 'music.json')
 
   try {
-    await fs.writeFile(mockOutput, jsonContent)
+    await fs.mkdir(mockFolder, { recursive: true })
+    await fs.writeFile(mockFile, jsonContent)
     console.log('Mock data saved')
   } catch (err) {
     console.error(err.message)
