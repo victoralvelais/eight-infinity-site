@@ -1,31 +1,42 @@
+import { parse, stringify } from 'flatted'
+
+function getMusic(client) {
+  const messages = getMusicMessages(client)
+  const links = grabLinks(messages)
+  return links
+}
+
 async function getMusicMessages(client) {
   const channel = await client.channels.cache.find(chan => chan.name.match(/music$/)) // Designated Channel
-  return await channel.messages.fetch({ limit: 100 })
+  const messages = await channel.messages.fetch({ limit: 100 })
+  const messageArray = Array.from(messages.values())
+  return parseMessages(messageArray)
 }
 
-async function getMusic(client) {
-  const channel = await client.channels.cache.find(chan => chan.name.match(/music$/)) // Designated Channel
-  const musicLinks = await grabLinks(channel)
-  return musicLinks
+function parseMessages(messages) {
+  return messages.map(msg => {
+    const { channelId, content, id, author, createdTimestamp, embeds } = msg
+    const message = { channelId, content, id, author, createdTimestamp, embeds }
+    return Object.assign({}, parse(stringify(message)))
+  })
 }
 
-async function grabLinks(musicChannel) {
-  const messages = await musicChannel.messages.fetch({ limit: 100 })
-  const musicMessages = messages.filter(musicMatch)
-  const musicArray = Array.from(musicMessages.values()) // Converts map: [id, data] to array
-  const musicLinks = musicArray.map(musicMatch)
-  return musicLinks
+function grabLinks(messages) {
+  return messages.reduce(musicMatch, [])
 }
 
-const musicMatch = msg => {
+const musicMatch = (list, msg) => {
   const ytRegex = /https?:\/\/(www\.)?(youtube\.com|youtu\.be)\/(watch\?v=)?([A-Za-z0-9\-_]+)/
   const spotRegex = /https:\/\/open\.spotify\.com\/track\/(\w*)/
   const ytMatch = msg.content.match(ytRegex)
   const spotMatch = msg.content.match(spotRegex)
 
-  if (ytMatch) return ytMatch[0]
-  else if (spotMatch) return spotMatch[0]
-  else return false
+  if (ytMatch || spotMatch) {
+    const music = ytMatch ? ytMatch[0] : spotMatch[0]
+    list.push({ music, ...msg })
+  }
+
+  return list
 }
 
-module.exports = { getMusic, getMusicMessages }
+module.exports = { getMusic, getMusicMessages, parseMessages, grabLinks }
