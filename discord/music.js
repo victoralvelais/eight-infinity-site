@@ -1,7 +1,7 @@
-import { parse, stringify } from 'flatted'
+const { parse, stringify } = require('flatted')
 
-function getMusic(client) {
-  const messages = getMusicMessages(client)
+async function getMusic(client) {
+  const messages = await getMusicMessages(client)
   const links = grabLinks(messages)
   return links
 }
