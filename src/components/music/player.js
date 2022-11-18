@@ -14,7 +14,7 @@ const MusicLink = ({ link }) => {
 
 const MusicPlayer = ({ links }) => {
   return (
-    <section style={{ background: '#222', height: 500, padding: '10px 0', borderRadius: 10, maxWidth: 400 }}>
+    <section style={{ background: '#222', height: 500, padding: '20px 0', borderRadius: 10, maxWidth: 400 }}>
       <ul className="music-list">
         {links.map((music, index) => (
             <MusicLink link={music} key={index} />
