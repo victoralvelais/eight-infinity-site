@@ -14,8 +14,8 @@ const MusicLink = ({ link }) => {
 
 const MusicPlayer = ({ links }) => {
   return (
-    <section style={{ background: '#222', height: 500, padding: '10px 0' }}>
-      <ul className="music-list" style={{  }}>
+    <section style={{ background: '#222', height: 500, padding: '10px 0', borderRadius: 10, maxWidth: 400 }}>
+      <ul className="music-list">
         {links.map((music, index) => (
             <MusicLink link={music} key={index} />
         ))}
@@ -24,7 +24,7 @@ const MusicPlayer = ({ links }) => {
       <br />
       <section style={{ display: 'flex', justifyContent: 'center', borderRadius: 10, maxWidth: 400 }}>
         <button style={{ background: 'red', color: 'white', width: 60, height: 40 }}>
-          |>
+          {'|>'}
         </button>
       </section>
     </section>
