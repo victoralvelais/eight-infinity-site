@@ -39,4 +39,4 @@ const musicMatch = (list, msg) => {
   return list
 }
 
-module.exports = { getMusic, getMusicMessages, parseMessages, grabLinks }
+export { getMusic, getMusicMessages, parseMessages, grabLinks }
