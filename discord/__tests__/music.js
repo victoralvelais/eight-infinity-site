@@ -1,7 +1,7 @@
 import * as fs from 'node:fs/promises'
 import path from 'path'
-import startClient from '../client.js'
-import { getMusicMessages, parseMessages, grabLinks } from '../music'
+import startClient from '../client.ts'
+import { getMusicMessages, parseMessages, grabLinks, musicMatch } from '../music'
 
 // https://devhints.io/jest
 // May need for TypeScript https://www.gatsbyjs.com/docs/how-to/testing/unit-testing/
@@ -14,6 +14,26 @@ describe("Discord Music", () => {
   it("starts the discord client", async () => {
     const client = await startClient()
     expect(client.isReady()).toBe(true)
+  })
+
+  it("recognizes playlists", async () => {
+    const links = [
+      {
+        content: 'https://www.youtube.com/playlist?list=PLZlA0Gpn_vH-xGQ-nQ87rXI7QkM6W3E79',
+      },
+      {
+        content: 'https://www.youtube.com/watch?v=7ghdL015w5A',
+      },
+      {
+        content: 'https://open.spotify.com/album/1IQmCioMTatFSX6biSISx5?si=P8Z1Qwl0Qsij9DJny64iZA&utm_source=copy-link',
+      },
+      {
+        content: 'https://open.spotify.com/track/3TBHOKAmwkyllUx9DzPioE?si=QB6XCeF6QbGACjtVoB4Gsw&utm_source=copy-link',
+      },
+    ]
+
+    const matches = links.reduce(musicMatch, [])
+    expect(matches).toHaveLength(4)
   })
 
   it("gets music messages", async () => {
