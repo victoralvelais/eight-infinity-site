@@ -1,7 +1,7 @@
 {
-  "name": "vcaiii",
+  "name": "eight-infinity-site",
   "private": true,
-  "description": "All My Links with Gatsby",
+  "description": "Website for the Eight or Infinity community",
   "version": "1.0.0",
   "author": "Victor Alvelais <vcalvelais@gmail.com>",
   "dependencies": {
@@ -39,7 +39,11 @@
     "react-test-renderer": "^18.2.0"
   },
   "keywords": [
-    "gatsby"
+    "creator",
+    "discord",
+    "gatsby",
+    "netlify",
+    "react"
   ],
   "license": "0BSD",
   "scripts": {
@@ -53,12 +57,5 @@
     "clean": "gatsby clean",
     "test": "jest --verbose false --coverage",
     "test-watch": "jest --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
