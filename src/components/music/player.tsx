@@ -18,18 +18,18 @@ const insertEmbed = (link, provider) => {
 }
 
 const MusicLink = ({ link, setActiveTrack }: { link: any, setActiveTrack: () => void }) => {
-  const { music, author, embeds } = link
+  const { music }: { music: any } = link
   try { // Using try until we can configure proper embeds in the backend
     // Some links don't have the embed information
     // but we don't need to rely on that if we create our own embeds
-    const player: string = embeds[0].provider.name
-    const embedLink: string = embeds[0]?.video?.url || insertEmbed(music, player)
+    const { source, url } : { source: string, url: string } = music
+    const embedLink: string = insertEmbed(url, source)
 
     return (
-      <li className={embedLink.match(/album|playlist/) ? 'playlist' : 'track'}>
-        {player === 'YouTube' ? 
+      <li className={url.match(/album|playlist/) ? 'playlist' : 'track'}>
+        {source === 'YouTube' ? 
           <YouTube // This works, but I haven't found one for Spotify
-            videoId={music.match(/watch\?v=(.*)/)[1] || 'BXPL2-MWSNY'}
+            videoId={url.match(/watch\?v=(.*)/)?.[1] || 'BXPL2-MWSNY'}
             onReady={(e) => console.log('Ready')}                   
             onPlay={(e) => console.log('Playing')}                   
             onPause={(e) => console.log('Paused')}                    
@@ -42,13 +42,17 @@ const MusicLink = ({ link, setActiveTrack }: { link: any, setActiveTrack: () => 
           // This is a react component for Spotify embeds
           // But if looks limited in terms of events and controls
           // https://github.com/ctjlewis/react-spotify-embed
+
+          // We can get playback events from the iFrame API
+          // Maybe we can add this to the react-spotify-embed component ^^^
+          // https://developer.spotify.com/documentation/embeds/references/iframe-api/#playback_update
           <iframe
             onClick={e => {
               console.log(e)
               setActiveTrack()
               }
             }
-            title={`${player} Web Player`}
+            title={`${source} Web Player`}
             loading="lazy"
             src={embedLink}
             style={{ border: 0 }}

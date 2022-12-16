@@ -32,7 +32,9 @@ export const musicMatch = (list, msg) => {
   const spotMatch = msg.content.match(spotRegex)
 
   if (ytMatch || spotMatch) {
-    const music = ytMatch ? ytMatch[0] : spotMatch[0]
+    const music = ytMatch ?
+      { source: 'YouTube', url: ytMatch[0] } :
+      { source: 'Spotify',  url: spotMatch[0] }
     list.push({ music, ...msg })
   }
 
