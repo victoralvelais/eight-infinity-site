@@ -46,6 +46,10 @@ const MusicLink = ({ link, setActiveTrack }: { link: any, setActiveTrack: () => 
           // We can get playback events from the iFrame API
           // Maybe we can add this to the react-spotify-embed component ^^^
           // https://developer.spotify.com/documentation/embeds/references/iframe-api/#playback_update
+
+          // This library supports a lot of different embeds
+          // Maybe they intercept events from the iFrame API
+          // https://github.com/itteco/iframely
           <iframe
             onClick={e => {
               console.log(e)
