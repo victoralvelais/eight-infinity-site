@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react"
 import YouTube from 'react-youtube'
 import './player.css'
 
+const ytRegex = /https?:\/\/(www\.)?(youtube\.com|youtu\.be)\/(watch\?v=|playlist\?list=)?([A-Za-z0-9\-_]+)/
+
 const insertEmbed = (link, provider) => {
   // We should port this to the backend to create our own embed links
   // Not sure if we will need this with the iFrame APIs
   if (provider === 'YouTube') {
-    const regex = /https?:\/\/(www\.)?(youtube\.com|youtu\.be)\/(watch\?v=|playlist\?list=)?([A-Za-z0-9\-_]+)/
-    const match = link.match(regex)
+    const match = link.match(ytRegex)
     return `https://youtube.com/${match[3]}${match[4]}`
   }
 
@@ -29,7 +30,7 @@ const MusicLink = ({ link, setActiveTrack }: { link: any, setActiveTrack: () => 
       <li className={url.match(/album|playlist/) ? 'playlist' : 'track'}>
         {source === 'YouTube' ? 
           <YouTube // This works, but I haven't found one for Spotify
-            videoId={url.match(/watch\?v=(.*)/)?.[1] || 'BXPL2-MWSNY'}
+            videoId={url.match(ytRegex)?.[4] || 'BXPL2-MWSNY'}
             onReady={(e) => console.log('Ready')}                   
             onPlay={(e) => console.log('Playing')}                   
             onPause={(e) => console.log('Paused')}                    
